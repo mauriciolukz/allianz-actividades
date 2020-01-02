@@ -1,41 +1,79 @@
 import React, { Component } from 'react'
 import { Carousel } from 'react-bootstrap';
-import { ReactSVG } from 'react-svg'
-import Icon from '@material-ui/core/Icon';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee,faCar,faSearch } from '@fortawesome/free-solid-svg-icons'
+import {BrowserRouter as Router,Link} from "react-router-dom";
 
 class Banner extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            Actividades: [],
+            Items_Actividades: []
+        };
+
+    }
+
+    componentDidMount() {
+        let currentComponent = this;
+        fetch('http://api-allianz-actividades.test/api/actividad')
+        .then(function(response) {
+            response.json().then(function(json) {
+                currentComponent.setState({
+                    Actividades: json.Actividades,
+                    Items_Actividades: json.Items_Actividades
+                  });
+            });
+        })
+    }
+
+    
+
     render() {
+        
+        const { Actividades, Items_Actividades } = this.state;
+
+        const actividadList = this.state.Actividades.map((actividad, i) => {
+            return (
+                <Carousel.Item key={i}>
+                    <img className="d-block w-100" src={`./${actividad.img_actividad}`} alt="First slide"/>
+                    <Carousel.Caption>
+                        <h2>{actividad.Desc_actividad}</h2>
+                        <div className="row remove-padding-sides">
+                            {
+                                Items_Actividades.filter(Items_Actividades => Items_Actividades.actividad_id === actividad.actividad_id).map((Item, i) => {
+                                    return (
+                                        <div className="col remove-padding-sides">
+                                            <div>
+                                                <div>
+                                                    <Link to={`${Item.actividad_id}/${Item.Id_item_actividad}/detalleactividad`} className="btn btn-default btn-circle" style={{backgroundColor: Item.color_item}}><img src={`./iconos/${Item.img_item}`} /></Link>
+                                                </div>  
+                                                <div>
+                                                    <small>{Item.nombre_item}</small> 
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    )
+                                })
+                            }
+                        </div>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            )
+        });
+
         return (
             <div>
-                <Carousel>
-                    <Carousel.Item>
-                        <img className="d-block w-100" src="./home-sombrilla.jpeg" alt="First slide"/>
-                        <Carousel.Caption>
-                            <h2>Guias de actividades autónomas</h2>
-                            <button type="button" class="btn btn-default btn-circle btn-xl" style={{backgroundColor: 'white'}}><FontAwesomeIcon icon={faCoffee} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCoffee} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCoffee} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCoffee} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCoffee} size="lg" color="green"/></button>
-                            <p>Detalle de actividades autonomas.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-block w-100" src="./home-sombrilla.jpeg" alt="Third slide"/>
-                        <Carousel.Caption>
-                            <h2>Guias de actividades corredores</h2>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCar} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCar} size="lg" color="green"/></button>
-                            <button type="button" class="btn btn-danger btn-circle btn-xl"><FontAwesomeIcon icon={faCar} size="lg" color="green"/></button>
-                            <p>Detalle de actividades corredores.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                <Carousel>{actividadList}</Carousel>
             </div>
         )
     }
 }
 
 export default Banner;
+
+
+
+
+
+

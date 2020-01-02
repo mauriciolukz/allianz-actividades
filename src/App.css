@@ -1,18 +1,46 @@
-.btn-circle.btn-xl {
-  width: 50px;
-  height: 50px;
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
   padding: 10px 16px;
-  border-radius: 35px;
-  font-size: 12px;
+  border-radius: 35px !important;
+  font-size: 24px;
   line-height: 1.33;
 }
 
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857;
+.btn-circle-hover :hover {
+  background-color: #003781 ;
+  /* padding: 6px 0px; */
+} 
+
+.default-color-button{
+  color: #FFFFFF;
+  background-color: #003781;
+}
+
+.default-color-link{
+  color: #003781 !important;
+  font-weight: bold !important;
+}
+
+.remove-padding-sides{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.remove-padding-top-bottom{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.topnav a:hover {
+  border-bottom: 3px solid #003781 !important;
+  color: #003781 !important;
+  font-weight: bold;
+
+}
+
+.topnav a {
+  color: black !important;
+  border-bottom: 3px solid transparent !important;
 }
