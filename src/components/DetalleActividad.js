@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Col,Row,Form,Table} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Truncate from 'react-truncate';
+import ShowMoreText from "react-show-more-text";
 
 class DetalleActividad extends Component {
     constructor(props) {
@@ -21,7 +23,6 @@ class DetalleActividad extends Component {
         fetch('http://api-allianz-actividades.test/api/actividad/' + this.props.match.params.id_actividad + "/" + this.props.match.params.id_item_actividad)
         .then(function(response) {
             response.json().then(function(json) {
-                console.log(json);
                 currentComponent.setState({
                     Actividad: json.Actividades,
                     Items_Actividad: json.Items_Actividades,
@@ -36,16 +37,28 @@ class DetalleActividad extends Component {
         fetch('http://api-allianz-actividades.test/api/generalidadItems/' + e)
         .then(function(response) {
             response.json().then(function(json) {
-                console.log(json);
                 currentComponent.setState({
                     Generalidades_items: json.Generalidades_items
                 }); 
             });
         })
     }
-    
+
+    executeOnClick(isExpanded) {
+        console.log(isExpanded);
+    }
+
     render() {
         const { Actividad, Items_Actividad,Generalidades_items } = this.state;
+        let _generalidadesList = "";
+        const generalidadesList = Generalidades_items.map((generalidad, i) => { 
+            return (
+                _generalidadesList += (i + 1)  + ") " + generalidad.Desc_generalidad + '\n'
+                // <li>{generalidad.Desc_generalidad}</li>
+            )
+        })
+
+        //console.log(mystring);
 
         return (
             <div className="container-fluid">
@@ -124,7 +137,7 @@ class DetalleActividad extends Component {
                                                     <td>{generalidad.web_service}</td>
                                                     <td>{generalidad.buzones_funcionales}</td>
                                                     <td>{generalidad.nivel_servicio}</td>
-                                                    <td><a>ver soporte</a></td>
+                                                    <td><a href="">ver soporte</a></td>
                                                 </tr>
                                             )
                                         })
@@ -135,9 +148,7 @@ class DetalleActividad extends Component {
                         </Row>
 
                     </Col>
-                    <Col sm={4}>
-                        
-                            
+                    <Col sm={4}>   
                         {
                             Items_Actividad.filter(Items_Actividades => Items_Actividades.Id_item_actividad === 3).map((Item, i) => {
                                 return (
@@ -147,16 +158,21 @@ class DetalleActividad extends Component {
                         
                         }
                         
-                        <ul>
-                            {
-                                Generalidades_items.map((generalidad, i) => {
-                                    return (
-                                        <li>{generalidad.Desc_generalidad}</li>
-                                    )
-                                })
-                            
-                            }
-                        </ul>
+                        
+                        {/* <ul> */}
+                        <ShowMoreText
+                            /* Default options */
+                            lines={2}
+                            more='Mostrar mas'
+                            less='Mostrar menos'
+                            anchorClass=''
+                            onClick={this.executeOnClick}
+                            expanded={false}
+                            width={280}
+                        >
+                            {_generalidadesList}
+                        </ShowMoreText>
+                        {/* </ul> */}
                     </Col>
                 </Row>
             </div>
