@@ -16,7 +16,7 @@ class Banner extends Component {
 
     componentDidMount() {
         let currentComponent = this;
-        fetch('http://api-allianz-actividades.test/api/actividad')
+        fetch('https://api-allianz-actividades.herokuapp.com/api/actividad')
         .then(function(response) {
             response.json().then(function(json) {
                 currentComponent.setState({

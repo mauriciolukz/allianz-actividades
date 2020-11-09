@@ -20,7 +20,7 @@ class DetalleActividad extends Component {
 
     componentDidMount() {
         let currentComponent = this;
-        fetch('http://api-allianz-actividades.test/api/actividad/' + this.props.match.params.id_actividad + "/" + this.props.match.params.id_item_actividad)
+        fetch('https://api-allianz-actividades.herokuapp.com/api/actividad/' + this.props.match.params.id_actividad + "/" + this.props.match.params.id_item_actividad)
         .then(function(response) {
             response.json().then(function(json) {
                 currentComponent.setState({
@@ -34,7 +34,7 @@ class DetalleActividad extends Component {
 
     handleItem(e) {
         let currentComponent = this;
-        fetch('http://api-allianz-actividades.test/api/generalidadItems/' + e)
+        fetch('https://api-allianz-actividades.herokuapp.com/api/generalidadItems/' + e)
         .then(function(response) {
             response.json().then(function(json) {
                 currentComponent.setState({
