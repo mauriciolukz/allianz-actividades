@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "./static/css/main.822c7ac6.chunk.css",
-    "main.js": "./static/js/main.d0da350d.chunk.js",
-    "main.js.map": "./static/js/main.d0da350d.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.aef88a7a.js",
-    "runtime-main.js.map": "./static/js/runtime-main.aef88a7a.js.map",
-    "static/css/2.17e5ed98.chunk.css": "./static/css/2.17e5ed98.chunk.css",
-    "static/js/2.4aeb276e.chunk.js": "./static/js/2.4aeb276e.chunk.js",
-    "static/js/2.4aeb276e.chunk.js.map": "./static/js/2.4aeb276e.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.969d308065f29a7144dd303f49c514b8.js": "./precache-manifest.969d308065f29a7144dd303f49c514b8.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/2.17e5ed98.chunk.css.map": "./static/css/2.17e5ed98.chunk.css.map",
-    "static/css/main.822c7ac6.chunk.css.map": "./static/css/main.822c7ac6.chunk.css.map",
-    "static/js/2.4aeb276e.chunk.js.LICENSE": "./static/js/2.4aeb276e.chunk.js.LICENSE"
+    "main.css": "/allianz-actividades/static/css/main.822c7ac6.chunk.css",
+    "main.js": "/allianz-actividades/static/js/main.32642041.chunk.js",
+    "main.js.map": "/allianz-actividades/static/js/main.32642041.chunk.js.map",
+    "runtime-main.js": "/allianz-actividades/static/js/runtime-main.8baa3cd8.js",
+    "runtime-main.js.map": "/allianz-actividades/static/js/runtime-main.8baa3cd8.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/allianz-actividades/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.4aeb276e.chunk.js": "/allianz-actividades/static/js/2.4aeb276e.chunk.js",
+    "static/js/2.4aeb276e.chunk.js.map": "/allianz-actividades/static/js/2.4aeb276e.chunk.js.map",
+    "index.html": "/allianz-actividades/index.html",
+    "precache-manifest.f2a56d9b77dfc7548ede890ea12c4e9a.js": "/allianz-actividades/precache-manifest.f2a56d9b77dfc7548ede890ea12c4e9a.js",
+    "service-worker.js": "/allianz-actividades/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/allianz-actividades/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.822c7ac6.chunk.css.map": "/allianz-actividades/static/css/main.822c7ac6.chunk.css.map",
+    "static/js/2.4aeb276e.chunk.js.LICENSE": "/allianz-actividades/static/js/2.4aeb276e.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.aef88a7a.js",
+    "static/js/runtime-main.8baa3cd8.js",
     "static/css/2.17e5ed98.chunk.css",
     "static/js/2.4aeb276e.chunk.js",
     "static/css/main.822c7ac6.chunk.css",
-    "static/js/main.d0da350d.chunk.js"
+    "static/js/main.32642041.chunk.js"
   ]
 }
